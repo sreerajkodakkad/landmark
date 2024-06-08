@@ -1,0 +1,2 @@
+﻿Invoice/Item Number,Date,Store Number,store_name,Address,City,Zip Code,Store Location,County Number,County,Category,category_name,Vendor Number,vendor_name,Item Number,item_desc,Pack,Bottle Volume (ml),State Bottle Cost,State Bottle Retail,Bottles Sold,Sale (Dollars),Volume Sold (Liters),Volume Sold (Gallons)
+ABC-111111,08-01-2024,111,sree,E-city,IDA BLR,560100,null,47,IDA,1031100,category_name_83,301,vendor_name_291,38176,item_desc_2115,12,750,9.64,14.46,12,173.52,9,2.37

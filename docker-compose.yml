@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_DB: sales_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mangotree
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  django:
+    build:
+      context: ./backend/sales_dashboard
+    container_name: django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend/sales_dashboard:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      - DB_NAME=sales_db
+      - DB_USER=postgres
+      - DB_PASSWORD=mangotree
+      - DB_HOST=localhost
+
+  react:
+    build:
+      context: ./frontEnd/sales-ui
+    container_name: react
+    ports:
+      - "3000:80"
+
+volumes:
+  postgres_data:
